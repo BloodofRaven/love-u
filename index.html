@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Love</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>لقلب حبيبتي ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Arial', system-ui;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #ff9a9e 0%, #fad0c4 50%, #fad0c4 100%);
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* قلوب متحركة في الخلفية */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart-float {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0.6;
+            animation: floatHeart 8s linear infinite;
+            bottom: -50px;
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.7; bottom: -50px; }
+            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; bottom: 100%; }
+        }
+
+        /* شاشة الدخول */
+        .login-container, .content-container {
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(12px);
+            border-radius: 65px;
+            padding: 40px 25px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.3);
+            z-index: 2;
+            border: 2px solid rgba(255,255,200,0.7);
+        }
+
+        .login-container h1 {
+            color: #e91e63;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .login-container input {
+            width: 85%;
+            padding: 15px;
+            border: 3px solid #ffb7c5;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 20px 0;
+            background: #fff0f3;
+        }
+
+        .login-container button {
+            background: #e91e63;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 18px rgba(233,30,99,0.3);
+            transition: 0.2s;
+        }
+
+        .login-container button:hover {
+            background: #c2185b;
+            transform: scale(1.02);
+        }
+
+        /* المحتوى الجميل */
+        .content-container {
+            display: none;
+            max-width: 750px;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.97); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .title-love {
+            font-size: 2rem;
+            color: #b82b62;
+            margin-bottom: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .gallery img {
+            width: 170px;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 40px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+            transition: 0.3s;
+            border: 4px solid white;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05) rotate(1deg);
+        }
+
+        .message-box {
+            background: #fff9fb;
+            padding: 25px;
+            border-radius: 50px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-right: 10px solid #ff9a9e;
+        }
+
+        .big-love {
+            font-size: 3rem;
+            letter-spacing: 10px;
+        }
+
+        .cute-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #4b2e3a;
+        }
+
+        .love-poem {
+            background: #ffeef4;
+            padding: 20px;
+            border-radius: 35px;
+            font-style: italic;
+            margin-top: 15px;
+        }
+
+        .btn-extra {
+            background: none;
+            border: 2px solid #e91e63;
+            padding: 8px 20px;
+            border-radius: 40px;
+            margin: 10px;
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        .note {
+            font-size: 0.8rem;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+<div class="floating-hearts" id="floatingHearts"></div>
+
+<!-- شاشة كلمة السر -->
+<div class="login-container" id="loginBox">
+    <h1>💗 مخصوص لأجمل حبيبة 💗</h1>
+    <p style="font-size:1.2rem;">يا قمر، اكتبي كلمة السر وادخلي عالم الحب</p>
+    <input type="password" id="passwordInput" placeholder="••••••">
+    <button onclick="checkPassword()">✨ افتحي قلبي ✨</button>
+    <div id="errorMsg" style="color:#c2185b; margin-top:15px;"></div>
+</div>
+
+<!-- المحتوى السري -->
+<div class="content-container" id="contentBox">
+    <div class="title-love">
+        💖 يا يمنت قلبي💖
+    </div>
+
+    <div class="gallery" id="galleryHere">
+        <!-- الصور هتتحط هنا -->
+    </div>
+
+    <div class="message-box">
+        <div class="big-love">💌💘💝</div>
+        <div class="cute-text">
+            حبيبتي، أنتِ ابتسامة عمري ونبض قلبي كلو .<br>
+            كل يوم بحبك أكتر من اللي قبله 💕<br>
+            متزعليش أبداً... أنا جنبك دايماً ولاخر العمر.<br>
+            عيونك أجمل حاجة في الدنيا ❤️
+        </div>
+    </div>
+
+    <div class="love-poem">
+        💞 " لو الدنيا كلها قالولك إنك عادية، أنا هقولهم إنك معجزة ربنا الوحيدة بالنسبة لي" 💞<br>
+        ❤️ بحبك جداً مش كلام وخلاص .. بحبك من جوة قلبي ❤️
+    </div>
+
+    <div class="message-box" style="background:#fff0f5;">
+        <span style="font-size:2rem;">💋🥺💋</span>
+        <p style="font-size:1.2rem;">كل يوم وانتي معايا  يا أجمل حد في حياتي كلها. ربنا يخليكي ليا ولا يحرمني منك ابدا ابدا 😘😘😘😘😘</p>
+    </div>
+
+    <div class="note">
+        اضغطي على الصور عشان تكبري 🤍
+    </div>
+</div>
+
+<script>
+    const SECRET_PASSWORD = "YALove"; // غيريها زي ما تحبي
+
+    function checkPassword() {
+        let pass = document.getElementById("passwordInput").value;
+        let err = document.getElementById("errorMsg");
+        if (pass === SECRET_PASSWORD) {
+            document.getElementById("loginBox").style.display = "none";
+            document.getElementById("contentBox").style.display = "block";
+            startHeartRain();
+            loadImages();
+        } else {
+            err.innerText = "❤️‍🔥 كلمة السر مش صحيحة يا قمر ❤️‍🔥 حاولي تاني";
+        }
+    }
+
+    function loadImages() {
+        let gallery = document.getElementById("galleryHere");
+        // 😍 هنا حطي روابط صوركم (صور ليكوا سوا)
+        // استخدمي روابط صور من ImgBB أو أي موقع رفع صور
+        const imagesList = [
+            "https://ibb.co/PvqKqr27",
+            "https://ibb.co/Xfp3V1Nm",
+            "https://ibb.co/7NSXnHZC",
+            "https://ibb.co/4whd6kr4"
+        ];
+        gallery.innerHTML = "";
+        for (let imgUrl of imagesList) {
+            let img = document.createElement("img");
+            img.src = imgUrl;
+            img.alt = "ذكرى حلوة";
+            img.onclick = () => window.open(imgUrl, '_blank');
+            gallery.appendChild(img);
+        }
+    }
+
+    // توليد قلوب متحركة
+    function startHeartRain() {
+        const heartsContainer = document.getElementById("floatingHearts");
+        setInterval(() => {
+            let heart = document.createElement("div");
+            heart.className = "heart-float";
+            heart.innerHTML = ["❤️","💖","💗","💓","💘","💕","💞","💝"][Math.floor(Math.random() * 8)];
+            heart.style.left = Math.random() * 100 + "%";
+            heart.style.fontSize = (Math.random() * 25 + 18) + "px";
+            heart.style.animationDuration = (Math.random() * 4 + 4) + "s";
+            heart.style.opacity = Math.random() * 0.6 + 0.3;
+            heartsContainer.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 6000);
+        }, 700);
+    }
+</script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
